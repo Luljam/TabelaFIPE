@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TabelaFIPE.Application.Exceptions;
 using TabelaFIPE.Application.Interfaces;
 using TabelaFIPE.Domain.Entities;
 
@@ -45,10 +46,13 @@ namespace TabelaFIPE.Application.Services
                     throw new Exception("Não foi possível buscar as Marcas.");
                 }
             }
+            catch (VeiculoException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                string error = ex.Message;
-                throw new Exception("Não foi possível buscar as marcas no provedor." + error);
+                throw new Exception("Não foi possível buscar as marcas no provedor.", ex);
             }
         }
     }

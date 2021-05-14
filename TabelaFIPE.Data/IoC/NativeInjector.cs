@@ -14,6 +14,7 @@ namespace TabelaFIPE.Data.IoC
             #region Services
 
             services.AddScoped<IMarcasServices, MarcasServices>();
+            services.AddScoped<IVeiculosServices, VeiculosServices>();
 
             #endregion
 

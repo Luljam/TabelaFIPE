@@ -9,6 +9,7 @@ namespace TabelaFIPE.Application.Interfaces
     public interface IVeiculosServices
     {
         Task<IEnumerable<Veiculos>> GetVeiculosMarca(int idMarca);
-        Task<IEnumerable<Veiculo>> GetVeiculo(int idMarca, int codigoVeiculo);
+        Task<IEnumerable<Veiculo>> GetVeiculo(int idMarca, string codigoVeiculo);
+        Task<VeiculoAno> GetVeiculoAno(int idMarca, string codigoVeiculo, string ano);
     }
 }

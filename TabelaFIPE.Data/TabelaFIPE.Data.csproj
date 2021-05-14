@@ -5,11 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Mapping\" />
-    <Folder Include="Migrations\" />
-    <Folder Include="Repositories\" />
+    <Compile Remove="Context\**" />
+    <Compile Remove="Extensions\**" />
+    <Compile Remove="Mapping\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="Context\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <EmbeddedResource Remove="Mapping\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Context\**" />
+    <None Remove="Extensions\**" />
+    <None Remove="Mapping\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>

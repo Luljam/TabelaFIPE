@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TabelaFIPE.Application.Exceptions;
 using TabelaFIPE.Application.Interfaces;
 using TabelaFIPE.Domain.Entities;
 
@@ -24,8 +25,8 @@ namespace TabelaFIPE.Application.Services
         {
             try
             {
-                var uri = new Uri($"tipo/veiculos/{idMarca}.json");
-                var response = await httpClient.GetAsync(uri);
+                //var uri = new Uri($"tipo/veiculos/{idMarca}.json");
+                HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculos/{idMarca}.json");
                 var statusCodeRetornado = response.StatusCode;
                 if (response.IsSuccessStatusCode)
                 {
@@ -42,19 +43,22 @@ namespace TabelaFIPE.Application.Services
                     throw new Exception("Não foi possível buscar os Veiculos.");
                 }
             }
+            catch (VeiculoException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                string error = ex.Message;
-                throw new Exception("Não foi possível buscar os Veiculos no provedor.");
+                throw new Exception("Não foi possível buscar os Veiculos no provedor.", ex);
             }
         }
 
-        public async Task<IEnumerable<Veiculo>> GetVeiculo(int idMarca, int codigoVeiculo)
+        public async Task<IEnumerable<Veiculo>> GetVeiculo(int idMarca, string codigoVeiculo)
         {
             try
             {
-                var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}.json");
-                var response = await httpClient.GetAsync(uri);
+                //var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}.json");
+                HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculo/{idMarca}/{codigoVeiculo}.json");
                 var statusCodeRetornado = response.StatusCode;
                 if (response.IsSuccessStatusCode)
                 {
@@ -64,26 +68,29 @@ namespace TabelaFIPE.Application.Services
                     {
                         return veiculo;
                     }
-                    throw new Exception($"Nenhum Veiculo foi encontrado.");
+                    throw new Exception("Nenhum Veiculo foi encontrado.");
                 }
                 else
                 {
                     throw new Exception("Não foi possível buscar o Veiculo.");
                 }
             }
+            catch (VeiculoException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                string error = ex.Message;
-                throw new Exception("Não foi possível buscar o Veiculo no provedor.");
+                throw new Exception("Não foi possível buscar o Veiculo no provedor.", ex);
             }
         }
 
-        public async Task<VeiculoAno> GetVeiculoAno(int idMarca, int codigoVeiculo, string ano)
+        public async Task<VeiculoAno> GetVeiculoAno(int idMarca, string codigoVeiculo, string ano)
         {
             try
             {
-                var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}/{ano}.json");
-                var response = await httpClient.GetAsync(uri);
+                //var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}/{ano}.json");
+                HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculo/{idMarca}/{codigoVeiculo}/{ano}.json");
                 var statusCodeRetornado = response.StatusCode;
                 if (response.IsSuccessStatusCode)
                 {
@@ -100,10 +107,13 @@ namespace TabelaFIPE.Application.Services
                     throw new Exception("Não foi possível buscar informações.");
                 }
             }
+            catch (VeiculoException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                string error = ex.Message;
-                throw new Exception("Não foi possível buscar as informações no provedor.");
+                throw new Exception("Não foi possível buscar as informações no provedor.", ex);
             }
         }
     }
