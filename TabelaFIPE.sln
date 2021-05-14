@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelaFIPE", "TabelaFIPE\TabelaFIPE.csproj", "{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Web", "1-Web", "{CE475A02-E6DA-4490-84BB-6569280C5D2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{A9771F1D-8D36-4E3A-9D14-A7B3BC15B5A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{83E1FB73-97D7-4BA4-B781-9199C056BA47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra", "4-Infra", "{DD336906-583E-4814-B81D-0315017FA124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelaFIPE.Application", "TabelaFIPE.Application\TabelaFIPE.Application.csproj", "{32F1D501-1436-4A5A-90E9-5A6764DA848F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelaFIPE.Domain", "TabelaFIPE.Domain\TabelaFIPE.Domain.csproj", "{F3D57595-5917-4B47-8B16-9D19A54D2B0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelaFIPE.Data", "TabelaFIPE.Data\TabelaFIPE.Data.csproj", "{262D7F6A-CF24-4617-95BD-F7EF08A161D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32F1D501-1436-4A5A-90E9-5A6764DA848F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F1D501-1436-4A5A-90E9-5A6764DA848F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F1D501-1436-4A5A-90E9-5A6764DA848F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F1D501-1436-4A5A-90E9-5A6764DA848F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3D57595-5917-4B47-8B16-9D19A54D2B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3D57595-5917-4B47-8B16-9D19A54D2B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3D57595-5917-4B47-8B16-9D19A54D2B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3D57595-5917-4B47-8B16-9D19A54D2B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262D7F6A-CF24-4617-95BD-F7EF08A161D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262D7F6A-CF24-4617-95BD-F7EF08A161D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262D7F6A-CF24-4617-95BD-F7EF08A161D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262D7F6A-CF24-4617-95BD-F7EF08A161D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7EC65DC4-66C5-45E8-BB3B-74D368D33FCF} = {CE475A02-E6DA-4490-84BB-6569280C5D2E}
+		{32F1D501-1436-4A5A-90E9-5A6764DA848F} = {A9771F1D-8D36-4E3A-9D14-A7B3BC15B5A1}
+		{F3D57595-5917-4B47-8B16-9D19A54D2B0B} = {83E1FB73-97D7-4BA4-B781-9199C056BA47}
+		{262D7F6A-CF24-4617-95BD-F7EF08A161D2} = {DD336906-583E-4814-B81D-0315017FA124}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6EDCB3F-76F3-4B10-9BA9-ED9F4A3A7D18}
+	EndGlobalSection
+EndGlobal
