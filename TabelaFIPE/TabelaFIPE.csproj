@@ -5,12 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TabelaFIPE.Application\TabelaFIPE.Application.csproj" />
     <ProjectReference Include="..\TabelaFIPE.Data\TabelaFIPE.Data.csproj" />
+    <ProjectReference Include="..\TabelaFIPE.Swagger\TabelaFIPE.Swagger.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,7 @@ using TabelaFIPE.Application.Interfaces;
 
 namespace TabelaFIPE.Controller
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class FIPEController : ControllerBase
@@ -21,13 +22,27 @@ namespace TabelaFIPE.Controller
             this.veiculosServices = veiculosServices;
         }
 
+        /// <summary>
+        /// Pesquisa as marcas
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna marcas de veiculos conforme o tipo: Carros, Motos ou Caminhoes</returns>
+        /// <response code="200">Returna as marcas</response>
+        /// <response code="400">Se a marca for null</response>    
         [HttpGet("marcas/{tipo}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllMarcas(string tipo)
         {
             var marcas = await marcasServices.GetAll(tipo);
             return Ok(marcas);
         }
 
+        /// <summary>
+        /// Retorna os veículos da marca passada no parâmento po Id da Marca
+        /// </summary>
+        /// <param name="idMarca"></param>
+        /// <returns></returns>
         [HttpGet("veiculo/{idMarca}")]
         public async Task<IActionResult> GetVeiculosPorMarca(int idMarca)
         {
@@ -35,6 +50,12 @@ namespace TabelaFIPE.Controller
             return Ok(veiculos);
         }
 
+        /// <summary>
+        /// Retorna o veículo (singular), passando o Id da Marca e do código do veiculo 
+        /// </summary>
+        /// <param name="idMarca"></param>
+        /// <param name="codigoVeiculo"></param>
+        /// <returns></returns>
         [HttpGet("veiculo/{idMarca}/{codigoVeiculo}")]
         public async Task<IActionResult> GetVeiculo(int idMarca, string codigoVeiculo)
         {
@@ -42,6 +63,13 @@ namespace TabelaFIPE.Controller
             return Ok(veiculo);
         }
 
+        /// <summary>
+        /// Retorna os dados completos de valores do veículo, passando o Id da Marca, o código do veículo e o ano do veículo
+        /// </summary>
+        /// <param name="idMarca"></param>
+        /// <param name="codigoVeiculo"></param>
+        /// <param name="ano"></param>
+        /// <returns></returns>
         [HttpGet("veiculo/{idMarca}/{codigoVeiculo}/{ano}")]
         public async Task<IActionResult> GetVeiculoAno(int idMarca, string codigoVeiculo, string ano)
         {

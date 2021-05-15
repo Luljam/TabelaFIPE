@@ -39,11 +39,11 @@ namespace TabelaFIPE.Application.Services
                     {
                         return marcas;
                     }
-                    throw new Exception($"Nenhum Modelo foi encontrado.");
+                    throw new Exception($"{statusCodeRetornado}: Nenhum Modelo foi encontrado.");
                 }
                 else
                 {
-                    throw new Exception("Não foi possível buscar as Marcas.");
+                    throw new Exception($"{statusCodeRetornado}: Não foi possível buscar as Marcas.");
                 }
             }
             catch (VeiculoException ex)

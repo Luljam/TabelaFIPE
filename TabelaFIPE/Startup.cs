@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using TabelaFIPE.Data.IoC;
 using Microsoft.Extensions.Hosting;
+using TabelaFIPE.Swagger;
 
 namespace TabelaFIPE
 {
@@ -18,6 +19,9 @@ namespace TabelaFIPE
 
             // Carrega configuração de Injeção de Dependência
             NativeInjector.RegisterServices(services);
+
+            // Carrega as configurações do Swagger criado em CrossCutting
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +37,9 @@ namespace TabelaFIPE
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwaggerConfiguration();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

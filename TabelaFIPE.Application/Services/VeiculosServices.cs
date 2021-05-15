@@ -36,11 +36,11 @@ namespace TabelaFIPE.Application.Services
                     {
                         return veiculos;
                     }
-                    throw new Exception($"Nenhum Veiculo foi encontrado.");
+                    throw new Exception($"{statusCodeRetornado}: Nenhum Veiculo foi encontrado.");
                 }
                 else
                 {
-                    throw new Exception("Não foi possível buscar os Veiculos.");
+                    throw new Exception($"{statusCodeRetornado}: Veículos não encontrados.");
                 }
             }
             catch (VeiculoException ex)
@@ -68,11 +68,11 @@ namespace TabelaFIPE.Application.Services
                     {
                         return veiculo;
                     }
-                    throw new Exception("Nenhum Veiculo foi encontrado.");
+                    throw new Exception($"{statusCodeRetornado}: Nenhum Veiculo foi encontrado.");
                 }
                 else
                 {
-                    throw new Exception("Não foi possível buscar o Veiculo.");
+                    throw new Exception($"{statusCodeRetornado}: Veículo não encontrado.");
                 }
             }
             catch (VeiculoException ex)
@@ -100,11 +100,11 @@ namespace TabelaFIPE.Application.Services
                     {
                         return veiculoAno;
                     }
-                    throw new Exception($"Nenhuma informação foi encontrada.");
+                    throw new Exception($"{statusCodeRetornado}: Nenhuma informação foi encontrada.");
                 }
                 else
                 {
-                    throw new Exception("Não foi possível buscar informações.");
+                    throw new Exception($"{statusCodeRetornado}: Informações não encontradas.");
                 }
             }
             catch (VeiculoException ex)
