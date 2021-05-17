@@ -39,7 +39,7 @@ namespace TabelaFIPE.Controller
                 return BadRequest();
             }
             var marcas = await marcasServices.GetAll(tipo);
-            if(marcas == null)
+            if(marcas.Count() == 0)
             {
                 return NotFound(marcas);
             }
