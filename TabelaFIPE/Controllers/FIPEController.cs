@@ -28,13 +28,21 @@ namespace TabelaFIPE.Controller
         /// <param name="tipo"></param>
         /// <returns>Retorna marcas de veiculos conforme o tipo: Carros, Motos ou Caminhoes</returns>
         /// <response code="200">Returna as marcas</response>
-        /// <response code="400">Se a marca for null</response>    
-        [HttpGet("marcas/{tipo}")]
+        /// <response code="400">Se a marca null</response>
+        [HttpGet("marcas/{tipo}", Name = "GetMarcaVeiculos")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllMarcas(string tipo)
         {
+            if(tipo == string.Empty)
+            {
+                return BadRequest();
+            }
             var marcas = await marcasServices.GetAll(tipo);
+            if(marcas == null)
+            {
+                return NotFound(marcas);
+            }
             return Ok(marcas);
         }
 
@@ -47,6 +55,10 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculosPorMarca(int idMarca)
         {
             var veiculos = await veiculosServices.GetVeiculosMarca(idMarca);
+            if(veiculos == null)
+            {
+                return NotFound(veiculos);
+            }
             return Ok(veiculos);
         }
 
@@ -60,6 +72,10 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculo(int idMarca, string codigoVeiculo)
         {
             var veiculo = await veiculosServices.GetVeiculo(idMarca, codigoVeiculo);
+            if(veiculo == null)
+            {
+                return NotFound(veiculo);
+            }
             return Ok(veiculo);
         }
 
@@ -74,6 +90,10 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculoAno(int idMarca, string codigoVeiculo, string ano)
         {
             var veiculoAno = await veiculosServices.GetVeiculoAno(idMarca, codigoVeiculo, ano);
+            if(veiculoAno == null)
+            {
+                return NotFound(veiculoAno);
+            }
             return Ok(veiculoAno);
         }
     }
