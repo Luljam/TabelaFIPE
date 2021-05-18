@@ -26,7 +26,6 @@ namespace TabelaFIPE.Application.Services
 
         public async Task<IEnumerable<Marcas>> GetAll(string tipo)
         {
-
             try
             {
                 var uri = new Uri($"http://fipeapi.appspot.com/api/1/{tipo}/marcas.json");

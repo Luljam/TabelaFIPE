@@ -87,7 +87,6 @@ namespace Fipe.Test
             var tipo = string.Empty;
             var mockMarcas = new Mock<IMarcasServices>();
             var mockVeiculos = new Mock<IVeiculosServices>();
-           // mockMarcas.Setup(m => m.GetAll(tipo));
 
             var controller = new FIPEController(mockMarcas.Object, mockVeiculos.Object);
 

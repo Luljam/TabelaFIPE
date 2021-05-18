@@ -25,27 +25,10 @@ namespace TabelaFIPE.Application.Services
         {
             try
             {
-                //var uri = new Uri($"tipo/veiculos/{idMarca}.json");
                 HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculos/{idMarca}.json");
-                var statusCodeRetornado = response.StatusCode;
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var veiculos = JsonConvert.DeserializeObject<IEnumerable<Veiculos>>(result);
-                    if (veiculos != null && veiculos.Count() > 0)
-                    {
-                        return veiculos;
-                    }
-                    throw new Exception($"{statusCodeRetornado}: Nenhum Veiculo foi encontrado.");
-                }
-                else
-                {
-                    throw new Exception($"{statusCodeRetornado}: Veículos não encontrados.");
-                }
-            }
-            catch (VeiculoException ex)
-            {
-                throw ex;
+                var result = await response.Content.ReadAsStringAsync();
+                var veiculos = JsonConvert.DeserializeObject<IEnumerable<Veiculos>>(result);
+                return veiculos;
             }
             catch (Exception ex)
             {
@@ -57,27 +40,10 @@ namespace TabelaFIPE.Application.Services
         {
             try
             {
-                //var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}.json");
                 HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculo/{idMarca}/{codigoVeiculo}.json");
-                var statusCodeRetornado = response.StatusCode;
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var veiculo = JsonConvert.DeserializeObject<IEnumerable<Veiculo>>(result);
-                    if (veiculo != null && veiculo.Count() > 0)
-                    {
-                        return veiculo;
-                    }
-                    throw new Exception($"{statusCodeRetornado}: Nenhum Veiculo foi encontrado.");
-                }
-                else
-                {
-                    throw new Exception($"{statusCodeRetornado}: Veículo não encontrado.");
-                }
-            }
-            catch (VeiculoException ex)
-            {
-                throw ex;
+                var result = await response.Content.ReadAsStringAsync();
+                var veiculo = JsonConvert.DeserializeObject<IEnumerable<Veiculo>>(result);
+                return veiculo;
             }
             catch (Exception ex)
             {
@@ -89,27 +55,11 @@ namespace TabelaFIPE.Application.Services
         {
             try
             {
-                //var uri = new Uri($"tipo/veiculos/{idMarca}/{codigoVeiculo}/{ano}.json");
                 HttpResponseMessage response = await httpClient.GetAsync($"tipo/veiculo/{idMarca}/{codigoVeiculo}/{ano}.json");
-                var statusCodeRetornado = response.StatusCode;
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var veiculoAno = JsonConvert.DeserializeObject<VeiculoAno>(result);
-                    if (veiculoAno != null)
-                    {
-                        return veiculoAno;
-                    }
-                    throw new Exception($"{statusCodeRetornado}: Nenhuma informação foi encontrada.");
-                }
-                else
-                {
-                    throw new Exception($"{statusCodeRetornado}: Informações não encontradas.");
-                }
-            }
-            catch (VeiculoException ex)
-            {
-                throw ex;
+
+                var result = await response.Content.ReadAsStringAsync();
+                var veiculoAno = JsonConvert.DeserializeObject<VeiculoAno>(result);
+                return veiculoAno;
             }
             catch (Exception ex)
             {
