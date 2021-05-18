@@ -26,33 +26,20 @@ namespace TabelaFIPE.Application.Services
 
         public async Task<IEnumerable<Marcas>> GetAll(string tipo)
         {
+
             try
             {
                 var uri = new Uri($"http://fipeapi.appspot.com/api/1/{tipo}/marcas.json");
                 var response = await httpClient.GetAsync(uri);
-                var statusCodeRetornado = response.StatusCode;
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var marcas = JsonConvert.DeserializeObject<IEnumerable<Marcas>>(result);
-                    if (marcas != null && marcas.Count() > 0)
-                    {
-                        return marcas;
-                    }
-                    throw new Exception($"{statusCodeRetornado}: Nenhum Modelo foi encontrado.");
-                }
-                else
-                {
-                    throw new Exception($"{statusCodeRetornado}: Não foi possível buscar as Marcas.");
-                }
-            }
-            catch (VeiculoException ex)
-            {
-                throw ex;
+                var result = await response.Content.ReadAsStringAsync();
+                var marcas = JsonConvert.DeserializeObject<IEnumerable<Marcas>>(result);
+                return marcas;
+
             }
             catch (Exception ex)
             {
-                throw new Exception("Não foi possível buscar as marcas no provedor.", ex);
+
+                throw new Exception("Não foi possível buscar os Veiculos no provedor.", ex);
             }
         }
     }
