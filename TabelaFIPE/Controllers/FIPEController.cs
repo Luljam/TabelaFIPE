@@ -55,7 +55,7 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculosPorMarca(int idMarca)
         {
             var veiculos = await veiculosServices.GetVeiculosMarca(idMarca);
-            if(veiculos == null)
+            if(veiculos.Count() == 0)
             {
                 return NotFound(veiculos);
             }
@@ -72,7 +72,7 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculo(int idMarca, string codigoVeiculo)
         {
             var veiculo = await veiculosServices.GetVeiculo(idMarca, codigoVeiculo);
-            if(veiculo == null)
+            if(veiculo.Count() == 0)
             {
                 return NotFound(veiculo);
             }
@@ -90,7 +90,7 @@ namespace TabelaFIPE.Controller
         public async Task<IActionResult> GetVeiculoAno(int idMarca, string codigoVeiculo, string ano)
         {
             var veiculoAno = await veiculosServices.GetVeiculoAno(idMarca, codigoVeiculo, ano);
-            if(veiculoAno == null)
+            if(veiculoAno.Equals(0))
             {
                 return NotFound(veiculoAno);
             }
